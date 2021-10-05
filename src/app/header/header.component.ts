@@ -6,19 +6,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  signalRecipe = true;
-  signalShopping = true;
+  @Output() featureSelected = new EventEmitter<string>();
 
-  @Output() recipeClicked = new EventEmitter<boolean>();
-  @Output() shoppingClicked = new EventEmitter<boolean>();
-
-  displayRecipe() {
-    this.recipeClicked.emit(this.signalRecipe);
-    console.log('recipe clicked');
-  }
-
-  displayShopping() {
-    this.shoppingClicked.emit(this.signalShopping);
-    console.log('shopping clicked');
+  onSelect(feature: string) {
+    this.featureSelected.emit(feature);
   }
 }

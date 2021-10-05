@@ -6,15 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  recipeClicked = false;
-  shoppingListClicked = false;
+  loadedFeature: string = 'recipe';
 
-  recipeTemplate($event) {
-    this.recipeClicked = $event;
-  }
-
-  shoppingTemplate($event) {
-    this.shoppingListClicked = $event;
-    console.log(this.shoppingListClicked);
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
   }
 }
